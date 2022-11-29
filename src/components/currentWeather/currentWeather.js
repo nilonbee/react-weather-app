@@ -1,12 +1,11 @@
 import React from "react";
+
 import { useGlobalContext } from "../context/context";
 import LoadingSkeleton from "../../components/skelton/skelton";
-import CustomizedTables from "../table/table";
 
 import "./currentWeather.css";
 
 const CurrentWeather = () => {
-  
   const { weather, loading } = useGlobalContext();
 
   if (loading) {
@@ -38,7 +37,6 @@ const CurrentWeather = () => {
         <div className="temperature">
           {weather ? `${Math.round(weather.main.temp)}°C` : "27°C"}
         </div>
-        {/* <CustomizedTables/> */}
         <div className="details">
           <div className="parameter-row">
             <span className="parameter-label">Feels like</span>

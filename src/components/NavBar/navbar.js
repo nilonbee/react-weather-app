@@ -1,6 +1,5 @@
 import React from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
-import { Link } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
@@ -8,13 +7,12 @@ import Typography from "@material-ui/core/Typography";
 import Card from "@material-ui/core/Card";
 import Avatar from "@material-ui/core/Avatar";
 import { alpha, makeStyles } from "@material-ui/core/styles";
-import MenuIcon from "@material-ui/icons/Menu";
 import ExitToAppOutlinedIcon from "@material-ui/icons/ExitToAppOutlined";
 
 import { useGlobalContext } from "../context/context";
-import { FullscreenExitOutlined } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
+
   root: {
     flexGrow: 1,
   },
@@ -28,6 +26,9 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
+    [theme.breakpoints.up("sm")]: {
+      marginRight: theme.spacing(16),
+    },
   },
   title: {
     flexGrow: 1,
@@ -65,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
   name: {
     color: alpha(theme.palette.common.white, 1),
     fontSize: 12,
-    wrhiteSpace: 'normal',
+    wrhiteSpace: "normal",
   },
   search: {
     borderRadius: theme.shape.borderRadius,
@@ -74,12 +75,11 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: alpha(theme.palette.common.black, 0.25),
     },
     color: alpha(theme.palette.text.primary, 0.75),
-    minWidth: 430,
+    minWidth: 400,
     [theme.breakpoints.up("sm")]: {
       margin: "auto !important",
-      marginLeft: theme.spacing(1),
+      marginLeft: theme.spacing(3),
       width: "auto",
-     
     },
     [theme.breakpoints.up("xl")]: {
       marginLeft: theme.spacing(1),
@@ -97,23 +97,27 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SearchAppBar() {
   const classes = useStyles();
-  const { handleOnChange, loadOptions, search, user, isAuthenticated } =
-    useGlobalContext();
+  const {
+    handleOnChange,
+    loadOptions,
+    search,
+    user,
+    logout,
+  } = useGlobalContext();
 
   return (
     <div className={classes.root}>
       <AppBar position="static" className={classes.appbar}>
         <Toolbar>
-          <Link to={"/"}>
-            <IconButton
-              edge="start"
-              className={classes.menuButton}
-              color="inherit"
-              aria-label="open drawer"
-            >
-              <ExitToAppOutlinedIcon className={classes.link} />
-            </IconButton>
-          </Link>
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="open drawer"
+            onClick={logout}
+          >
+            <ExitToAppOutlinedIcon className={classes.link} />
+          </IconButton>
           <AsyncPaginate
             placeholder="Search for city to know Weather"
             debounceTimeout={600}
