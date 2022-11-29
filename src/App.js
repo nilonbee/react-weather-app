@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import HomePage from "./Pages/home/home";
-import SignInSide from "./Pages/auth/auth";
+import SignInSide from "./Pages/Auth/auth";
 import ProtectedRoutes from "./protectedRoutes/protectedRoutes";
 
 import "./App.css";
