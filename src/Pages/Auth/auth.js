@@ -9,7 +9,7 @@ import Paper from "@material-ui/core/Paper";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import image from "../../assets/pexels-tahir-shaw-186980.jpg";
+import image from "../../Assets/pexels-tahir-shaw-186980.jpg";
 import { makeStyles } from "@material-ui/core/styles";
 import { useGlobalContext } from "../../components/context/context";
 

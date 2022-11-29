@@ -1,7 +1,7 @@
 import React from "react";
 
 import CurrentWeather from "../../components/currentWeather/currentWeather";
-import SearchAppBar from "../../components/NavBar/navbar";
+import SearchAppBar from "../../components/navBar/navbar";
 
 import "./home.css";
 
